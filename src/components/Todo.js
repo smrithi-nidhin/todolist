@@ -1,6 +1,9 @@
 import React from "react";
 import { connect } from "react-redux";
 import { deleteTodo, editTodo } from "../redux/action/addTodo.action";
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+toast.configure()
 
 const Todo = ({ todo, idx, deleteTodo, editTodo, selected, text }) => {
   return (
@@ -15,7 +18,11 @@ const Todo = ({ todo, idx, deleteTodo, editTodo, selected, text }) => {
       }}
     >
       <div onClick={() => editTodo(idx)}>{selected === idx ? text : todo}</div>
-      <div style={{ cursor: "pointer" }} onClick={() => deleteTodo(idx)}>
+      <div style={{ cursor: "pointer" }} onClick={() => {
+      deleteTodo(idx)
+       toast.error('Successfully deleted');
+      }
+      }>
         x
       </div>
     </div>

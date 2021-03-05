@@ -42,6 +42,19 @@ const initState = {
           selected: undefined,
           text: ""
         };
+      case "UPDATE_ALL":
+        const todo5 = state.todos.map((todo, i) =>
+          i !== action.payload.value 
+        );
+        setPersist(todo5);
+        this.setState(state=>{
+          return {
+         text:state.todo5
+          };
+        }
+          )
+        
+          
       case "DELETE_ALL":
         setPersist([]);
         return { ...state, todos: [], text: "" };

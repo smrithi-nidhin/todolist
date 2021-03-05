@@ -25,6 +25,8 @@ export const persistTodos = () => ({
     payload: obj
   });
   
+ 
+  
   export const deleteAll = () => ({
     type: "DELETE_ALL"
   });

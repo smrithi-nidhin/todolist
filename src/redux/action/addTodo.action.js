@@ -7,7 +7,9 @@ export const persistTodos = () => ({
   });
   export const addTodo = todo => ({
     type: "ADD_TODO",
+    key:Date.now(),
     payload: todo
+    
   });
   
   export const deleteTodo = key => ({

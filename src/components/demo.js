@@ -10,29 +10,37 @@ import { FilterList } from "@material-ui/icons";
 toast.configure()
 const InputField = ({ addText, text, selected, addTodo}) => {
   // const handleChange = e => addText(e.target.value);
-  const handleChange = (e) => { 
+  // const handleChange = (e) => { 
   
-    addText(e.target.value);
-  }
+  //   addText(e.target.value);
+  // }
  
+  // const handleSubmit = e => {
+  //   e.preventDefault();
+  //   if (selected || selected === 0)
+  //     editAddTodo({
+  //       value: text,
+  //       selected: selected,
+  //       obj:toast('Successfully Updated'),
+        
+  //     });
+  //   else {  
+  //     addTodo(text);
+  //     toast.success('Successfully added');
+  //   }
+  // };
+  const handleChange = e => this.props.addText(e.target.value) 
   const handleSubmit = e => {
     e.preventDefault();
-    if (selected || selected === 0)
-      editAddTodo({
-        value: text,
-        selected: selected,
-        obj:toast('Successfully Updated'),
-        
-      });
-    else {  
-      addTodo(text);
-      toast.success('Successfully added');
-   
-
-    }
-   
-
+   if(this.props.selected || this.props.selected === 0)
+   this.props.editAddTodo({
+     value: this.props.text,
+     selected: this.props.selected
+   });
+   else
+   this.props.addTodo(this.props.text);
   };
+
   return (
     <form onSubmit={handleSubmit}>
       {/* <AutoComplete  

@@ -15,9 +15,11 @@ const initState = {
       case "ADD_TEXT":
         return { ...state, text: action.payload };
       case "ADD_TODO":
-        const todos2 = state.todos.concat(action.payload);
+        const todos2 = state.todos.concat(action.payload).sort();
         window.localStorage.setItem("todos2", JSON.stringify(todos2));
-        return { ...state, todos: todos2, text: "" };
+        return { ...state, 
+        
+          todos: todos2, text: "" };
       case "DELETE_TODO":
         const todo3 = state.todos.filter((todo, i) => i !== action.payload);
         setPersist(todo3);
@@ -42,19 +44,7 @@ const initState = {
           selected: undefined,
           text: ""
         };
-      case "UPDATE_ALL":
-        const todo5 = state.todos.map((todo, i) =>
-          i !== action.payload.value 
-        );
-        setPersist(todo5);
-        this.setState(state=>{
-          return {
-         text:state.todo5
-          };
-        }
-          )
-        
-          
+     
       case "DELETE_ALL":
         setPersist([]);
         return { ...state, todos: [], text: "" };

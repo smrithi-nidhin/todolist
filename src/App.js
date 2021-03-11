@@ -12,8 +12,9 @@ const App = ({ deleteAll, persistTodos }) => {
   return (
     <div className="todo-app container">
       <h1 style={{ textDecoration: "underline" }}> Todos App</h1>
-      <InputField />
-      <TodosList />
+     
+       <InputField /> 
+       <TodosList />
       <div>
         <button
           style={{ marginTop: "20px", cursor: "pointer" }}

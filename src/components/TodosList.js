@@ -8,15 +8,15 @@ const TodosList = ({ todos }) => {
       style={{
         display: "flex",
         flexDirection: "column",
-        width: "200px",
+        width: "800px",
         margin: "0 auto",
-        height: "200px",
+        height: "400px",
         overflowY: "auto",
         overflowX: "hidden"
       }}
     >
       {todos.map((todo, i) => (
-        <Todo key={i} todo={todo} idx={i} />
+        <Todo key={i} todo={todo} idx={i}  />
       ))}
     </div>
   );

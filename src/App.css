@@ -1,7 +1,14 @@
 .App {
   text-align: center;
 }
-
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body{
+  background: rgb(236,236,236);
+}
 .App-logo {
   height: 40vmin;
   pointer-events: none;

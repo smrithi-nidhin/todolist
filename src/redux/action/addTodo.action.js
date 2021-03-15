@@ -1,6 +1,10 @@
 export const persistTodos = () => ({
     type: "PERSIST_TODOS"
   });
+  export const login = value => ({
+    type: "USER_LOGIN",
+    payload: value
+  });
   export const addText = value => ({
     type: "ADD_TEXT",
     payload: value
@@ -10,6 +14,10 @@ export const persistTodos = () => ({
     key:Date.now(),
     payload: todo
     
+  });
+  export const selectUser = value => ({
+    type: "selectUser",
+    payload: value
   });
   
   export const deleteTodo = key => ({

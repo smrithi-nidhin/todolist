@@ -1,7 +1,19 @@
 const initState = {
     todos: [],
     text: "",
-    selected: undefined
+    selected: undefined,
+    name:"user",
+    initialState:{
+      user:null
+    },
+    // reducers:{
+    //   login: (state,action) => {
+    //     state.user = action.payload;
+    //   },
+    //   logout:(state) => {
+    //     state.user = null;
+    //   },
+    // },
   };
   
   const setPersist = todos =>
@@ -12,8 +24,14 @@ const initState = {
       case "PERSIST_TODOS":
         const todos = JSON.parse(window.localStorage.getItem("todos2"));
         return { ...state, todos: todos ? todos : [] };
+        case "USER_LOGIN":
+          return { ...state,
+             ...action.payload,
+            isLoggedIn:true };
       case "ADD_TEXT":
         return { ...state, text: action.payload };
+        case "selectUser":
+          return { state:state.user.user };
       case "ADD_TODO":
         const todos2 = state.todos.concat(action.payload).sort();
         window.localStorage.setItem("todos2", JSON.stringify(todos2));
@@ -52,3 +70,8 @@ const initState = {
         return state;
     }
   };
+
+  //export const { login, logout } = initState.action;
+  //export const selectUser = (state) => state.user.user;
+
+  export default initState.reducer;

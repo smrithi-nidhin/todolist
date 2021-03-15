@@ -1,18 +1,20 @@
 import React from "react";
 import { connect } from "react-redux";
-import { addTodo, addText, editAddTodo } from "../redux/action/addTodo.action";
+import { addTodo, addText, editAddTodo, login } from "../redux/action/addTodo.action";
 import { toast } from 'react-toastify';
 import AutoComplete from '@material-ui/lab/Autocomplete';
 import TextField from '@material-ui/core/TextField';
-
+import {useHistory} from 'react-router-dom';
 import 'react-toastify/dist/ReactToastify.css';
 import { FilterList } from "@material-ui/icons";
 toast.configure()
 const InputField = ({ addText, text, selected, addTodo}) => {
   // const handleChange = e => addText(e.target.value);
+  const history = useHistory()
   const handleChange = (e) => { 
   
     addText(e.target.value);
+   
   }
  
   const handleSubmit = e => {
@@ -26,8 +28,9 @@ const InputField = ({ addText, text, selected, addTodo}) => {
       });
     else {  
       addTodo(text);
+    
       toast.success('Successfully added');
-   
+     
 
     }
    
@@ -35,22 +38,7 @@ const InputField = ({ addText, text, selected, addTodo}) => {
   };
   return (
     <form onSubmit={handleSubmit}>
-      {/* <AutoComplete  
    
-    value={text}
-    onChange={handleChange}
-   renderInput={(
-    <input
-        type="text"
-        name="todo"
-        value={text}
-        placeholder="Enter your todo..."
-        onChange={handleChange}
-      /> 
-   )}
-      >
-     
-      </AutoComplete> */}
       <input
         type="text"
         name="todo"
